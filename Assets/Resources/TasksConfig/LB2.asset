@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4153a4e327d473185e8921377d4735f, type: 3}
+  m_Name: LB2
+  m_EditorClassIdentifier: 
+  undirectGraph: 1
+  GraphData:
+  - graph: 0
+    neighbours: 0100000002000000
+  - graph: 1
+    neighbours: 0100000003000000
+  - graph: 2
+    neighbours: 03000000
+  - graph: 3
+    neighbours: 03000000
+  - graph: 4
+    neighbours: 03000000
