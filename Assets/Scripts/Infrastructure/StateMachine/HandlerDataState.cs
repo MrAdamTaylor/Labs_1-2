@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using Extensions;
 using Infrastructure.Services;
 using UnityEngine;
 using Object = System.Object;
@@ -56,12 +56,15 @@ namespace Infrastructure.StateMachine
             Debug.Log("Исполнитель реализованый с точки зрения OCP");
             _concreateExecuter = _labServiceConteiner.DataCheck(getData);
             Debug.LogWarning(_concreateExecuter.GetType() + " Тип исполнителя!");
+            _concreateExecuter.LoadData(getData);
+            _concreateExecuter.Execute();
         }
     }
 
     public interface ILabExecuter : IService
     {
         public void Execute();
+        void LoadData<T>(T getData) where T : LBData;
     }
 
     interface IMgyaExecuter : ILabExecuter
@@ -77,9 +80,67 @@ namespace Infrastructure.StateMachine
 
     public class MgyaExecuter : IMgyaExecuter
     {
+        private IMgyaDataHandler _mgyaDataHandler;
+        
         public void Execute()
         {
-            throw new NotImplementedException();
+            AverageRanksMethod();
+            MedianRanksMethod();
+        }
+
+        public void LoadData<T>(T getData) where T : LBData
+        {
+            if (getData.GetType() == typeof(MgyaData))
+            {
+                Debug.Log("Обработка данных МГУА возможна!");
+                MgyaData data = getData as MgyaData;
+                _mgyaDataHandler = new MgyaDataHandler(data);
+            }
+        }
+
+        private void AverageRanksMethod()
+        {
+            Debug.Log("Метод средних арифметический рангов: ");
+            _mgyaDataHandler.GradCount.PrintWithMark("a");
+            _mgyaDataHandler.Data.PrintJaggedArray("Э");
+            _mgyaDataHandler.SumValues.PrintWithTitle("Сум");
+            _mgyaDataHandler.AverageValuer.PrintWithTitle("Сум");
+            _mgyaDataHandler.AverageValuer.PrintRangedLine("Сум");
+        }
+
+        private void MedianRanksMethod()
+        {
+            Debug.Log("Метод медианных рангов: ");
+            float[] medians = null;
+
+            var medianMatrix = MgyaMethods.TransformMatrix(_mgyaDataHandler.Data);
+            var projectCount = medianMatrix[0].Length;
+            
+            projectCount.PrintWithMark("a");
+            medianMatrix.PrintJaggedArray();
+            Debug.Log("Результат алгоритма: ");
+            medianMatrix = medianMatrix.TransposeMatrix();
+            Debug.Log("Транспланированная матрица");
+            medianMatrix.PrintJaggedArray();
+            for(var i = 0; i < medianMatrix.Length; i++)
+                Array.Sort(medianMatrix[i]);
+
+            medians = MgyaMethods.GetMedians(medianMatrix);
+            Debug.Log("Результат алгоритма");
+            medianMatrix = medianMatrix.TransposeMatrix();
+            projectCount.PrintWithMark("a");
+            medianMatrix.PrintJaggedArray();
+            medians.PrintWithTitle("Медианны");
+            medians.PrintRangedLine("a");
+
+        }
+
+        private void MedianKaemenyAvailableMethod()
+        {
+        }
+
+        private void MedianKemenyAllRanksMethod()
+        {
         }
     }
 
@@ -89,70 +150,12 @@ namespace Infrastructure.StateMachine
         {
             throw new NotImplementedException();
         }
-    }
 
-    interface ILabHandlersConteiner : IService
-    {
-        public ILabExecuter DataCheck<T>(T getData) where T : LBData;
-    }
-    
-    public class LabHandlersConteiner : ILabHandlersConteiner
-    {
-        public ILabExecuter DataCheck<T>(T getData) where T : LBData
+        public void LoadData<T>(T getData) where T : LBData
         {
-            var handler = LBDataDictionaryAdapter<T>.Conteiner.GetHandlerByData(getData);
-            return handler;
-            //throw new Exception("Класс для подбора реализаций не реализован");
-        }
-        
-    }
-
-    public class LBDataDictionaryAdapter<T> where T : LBData
-    {
-        private static LBDataDictionaryAdapter<T> _conteiner;
-        public static LBDataDictionaryAdapter<T> Conteiner
-        {
-            get
+            if (getData.GetType() == typeof(GraphData))
             {
-                if (_conteiner == null)
-                {
-                    _conteiner = new LBDataDictionaryAdapter<T>();
-                }
-                return _conteiner;
-            }
-        }
-
-        private List<ILabExecuter> _labsInterfaces = new List<ILabExecuter>();
-
-        public ILabExecuter GetHandlerByData(T data) 
-        {
-            var index = OrderType(data);
-            
-            switch (index)
-            {
-                case 0:  
-                    return LBDataDictionary.Conteiner.GetHandlerByData(data);
-                case 1: 
-                    return LBDataDictionary.Conteiner.GetHandlerByData(data);;
-                default:
-                    throw new Exception("Добавть новый индекс для данных, " +
-                                        "так как интеграция словаря с OCP принципом реализована не достаточно хорошо!");
-            }
-        }
-
-        private int OrderType(T data)
-        {
-            if (data.GetType() == typeof(MgyaData))
-            {
-                return 0;
-            }
-            else if(data.GetType() == typeof(GraphData))
-            {
-                return 1;
-            }
-            else
-            {
-                throw new Exception("Добавьте ещё один индекс");
+                Debug.Log("Обработка данных графов возможна!");
             }
         }
     }

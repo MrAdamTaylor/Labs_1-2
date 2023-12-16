@@ -1,5 +1,6 @@
 using System;
 using Infrastructure.Bootstrap;
+using Infrastructure.Bootstrap.Tasks;
 using Infrastructure.Services;
 using UnityEngine;
 using Object = UnityEngine.Object;

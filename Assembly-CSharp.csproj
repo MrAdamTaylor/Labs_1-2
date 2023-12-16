@@ -47,24 +47,31 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Infrastructure\Bootstrap\BootstrapConfigs.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Services\ServiceAllocator.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\LabHandlersConteiner.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\BootstrapState.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Bootstrap\Game.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\ILabHandlersConteiner.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\IState.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\LBData.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\GameLoopState.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Bootstrap\Tasks\LB1_Task.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Bootstrap\Tasks\Task.cs" />
+     <Compile Include="Assets\Scripts\Extensions\ArrayExtensions.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\GameStateMachine.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\MgyaMethods.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\DataConteiner.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Bootstrap\GameBootstraper.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Services\IService.cs" />
+     <Compile Include="Assets\Scripts\Extensions\Extensions.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Bootstrap\Tasks\LB2_Task.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\HandlerDataState.cs" />
-     <Compile Include="Assets\Scripts\Extensions.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\MgyaData.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\IMgyaDataHandler.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\GraphData.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\LBDataDictionaryAdapter.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Resources\Loading" />
+     <Folder Include="Assets\Scripts\Extensions" />
      <Folder Include="Assets\Scripts\Infrastructure\Bootstrap\Tasks" />
      <Folder Include="Assets\Scripts\Infrastructure\Bootstrap" />
      <Folder Include="Assets\Resources" />
@@ -324,10 +331,25 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="ReportGeneratorMerged">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\PackageCache\com.unity.testtools.codecoverage@1.2.3\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\PackageCache\com.unity.testtools.codecoverage@1.2.3\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.iOS.Extensions.Common">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Android.Types">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Android.Gradle">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Android.GradleProject">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.GradleProject.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -696,73 +718,73 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.EditorCoroutines.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>C:\Users\bluer\OneDrive\Рабочий стол\ММАС\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <HintPath>D:\repos\Labs_1-2\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
