@@ -376,12 +376,17 @@
 "Assets/Scripts/Infrastructure/StateMachine/BootstrapState.cs"
 "Assets/Scripts/Infrastructure/StateMachine/GameLoopState.cs"
 "Assets/Scripts/Infrastructure/StateMachine/GameStateMachine.cs"
+"Assets/Scripts/Infrastructure/StateMachine/GraphExecuter.cs"
 "Assets/Scripts/Infrastructure/StateMachine/HandlerDataState.cs"
+"Assets/Scripts/Infrastructure/StateMachine/IGraphExecuter.cs"
+"Assets/Scripts/Infrastructure/StateMachine/ILabExecuter.cs"
 "Assets/Scripts/Infrastructure/StateMachine/ILabHandlersConteiner.cs"
 "Assets/Scripts/Infrastructure/StateMachine/IMgyaDataHandler.cs"
+"Assets/Scripts/Infrastructure/StateMachine/IMgyaExecuter.cs"
 "Assets/Scripts/Infrastructure/StateMachine/IState.cs"
 "Assets/Scripts/Infrastructure/StateMachine/LabHandlersConteiner.cs"
 "Assets/Scripts/Infrastructure/StateMachine/LBDataDictionaryAdapter.cs"
+"Assets/Scripts/Infrastructure/StateMachine/MgyaExecuter.cs"
 "Assets/Scripts/Infrastructure/StateMachine/MgyaMethods.cs"
 -langversion:9.0
 

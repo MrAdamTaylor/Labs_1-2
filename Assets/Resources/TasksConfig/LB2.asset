@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   undirectGraph: 1
   GraphData:
-  - graph: 0
-    neighbours: 0100000002000000
   - graph: 1
-    neighbours: 0100000003000000
+    neighbours: 0200000005000000
   - graph: 2
-    neighbours: 03000000
-  - graph: 3
-    neighbours: 03000000
+    neighbours: 010000000300000004000000
   - graph: 4
-    neighbours: 03000000
+    neighbours: 060000000200000007000000
+  - graph: 6
+    neighbours: 040000000500000007000000
+  - graph: 7
+    neighbours: 04000000060000000800000009000000

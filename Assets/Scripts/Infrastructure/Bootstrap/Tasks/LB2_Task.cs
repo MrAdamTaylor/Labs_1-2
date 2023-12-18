@@ -25,6 +25,7 @@ namespace Infrastructure.Bootstrap.Tasks
             graphData.Size = graphData.Size.ReturnSizeUniqueNumbers(dataArray);
             graphData.GraphStructure = graphData.GraphStructure.ReturnUniqueArrayNumbers(dataArray);
             graphData.Undir = this.undirectGraph;
+            graphData.ShiftCount = graphData.GetShiftValue(graphData.GraphStructure);
             Debug.Log("Проверка расширения!");
             Debug.Log("Размер графа: " + graphData.Size);
             for (int i = 0; i < GraphData.Length; i++)

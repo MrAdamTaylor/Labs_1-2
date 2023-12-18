@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Infrastructure;
 using Infrastructure.Bootstrap.Tasks;
 using UnityEngine;
 
@@ -102,6 +103,13 @@ namespace Extensions
             allIntData = new int[arraySize];
             allIntData = FillDataArray(graphData, arraySize);
             return allIntData;
+        }
+
+        public static int GetShiftValue(this GraphData data, int[] array)
+        {
+            int minValue = array.Min();
+            int shift = 0 + array.Min();
+            return shift;
         }
 
         private static int[] FillDataArray(AdjacenyListStruct[] graphData, int arraySize)

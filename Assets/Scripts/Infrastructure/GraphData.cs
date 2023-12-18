@@ -2,7 +2,7 @@ using System;
 
 namespace Infrastructure
 {
-    class GraphData : LBData
+    public class GraphData : LBData
     {
         public bool Undir;
         public int Size;
@@ -14,6 +14,8 @@ namespace Infrastructure
             Pairs = new GraphIntPairs[count];
         }
 
+        public int ShiftCount { get; set; }
+
         public override T GetData<T>() 
         {
             return (T)(Object)this;
@@ -24,6 +26,7 @@ namespace Infrastructure
             public int GraphPoint;
             public int[] NeighborPoints;
         }
+        
     }
 
     

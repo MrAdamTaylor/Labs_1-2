@@ -55,16 +55,6 @@ namespace Infrastructure.StateMachine
 
         private void FullDictionary<T>(T[] Tasks) where T : Task
         {
-            /*for (int i = 0; i < DataConteiner.Conteiner.Data.Count; i++)
-            {
-                //Object value = DataConteiner.Conteiner.Data[i].GetData<Object>();
-                LBDataDictionary<LBData, ILabExecuter>.Conteiner.AddDataType(
-                    DataConteiner.Conteiner.Data[i].GetData<Type>(),
-                    ExecuterMaster
-                    (DataConteiner.Conteiner.Data[i])
-                    );
-
-            }*/
             for (int j = 0; j < Tasks.Length; j++)
             {
                 LBDataDictionary.Conteiner.AddDataType(
