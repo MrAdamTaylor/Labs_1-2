@@ -39,7 +39,7 @@ namespace Extensions
         }
 
         //TODO - для МГУА
-        public static void PrintWithMark(this int count, string mark)
+        public static void PrintCountWithMark(this int count, string mark)
         {
             string row = "";
             for (int i = 0; i < count; i++)

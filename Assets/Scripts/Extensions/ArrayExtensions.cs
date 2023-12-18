@@ -60,6 +60,17 @@ namespace Extensions
             }
         }
 
+        internal static void PrintOneDimensionArray<T>(this T[] array, string mark)
+        {
+            string row = "";
+            for (int x = 0; x < array.Length; x++)
+            {
+                string strValue = array[x].ToString();
+                row = row + mark + strValue + " ";
+            }
+            Debug.Log(row);
+        }
+
         internal static T[][] TransposeMatrix<T>(this T[][] matrix)
         {
             int rowCount = matrix.Length;
