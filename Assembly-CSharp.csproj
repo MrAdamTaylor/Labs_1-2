@@ -45,9 +45,13 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\IStructTopologyHandler.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Bootstrap\BootstrapConfigs.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Services\ServiceAllocator.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\LabHandlersConteiner.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\BfsShortestPath.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\IStructGraphDataIntReader.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\StructTopologyHandler.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\BootstrapState.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Bootstrap\Game.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\ILabHandlersConteiner.cs" />
@@ -57,21 +61,30 @@
      <Compile Include="Assets\Scripts\Infrastructure\Bootstrap\Tasks\LB1_Task.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\IMgyaExecuter.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Bootstrap\Tasks\Task.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\IBfs.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\GraphExecuter.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\IStructGraphDataIntWriter.cs" />
+     <Compile Include="Assets\Scripts\Extensions\Indexator.cs" />
      <Compile Include="Assets\Scripts\Extensions\ArrayExtensions.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\GameStateMachine.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\StructGraphDataIntReader.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\MgyaMethods.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\DataConteiner.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Bootstrap\GameBootstraper.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\GraphDataStructureInt.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\StructGraphDataIntWriter.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\IGraphExecuter.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Services\IService.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\GraphDataHandler.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\ILabExecuter.cs" />
      <Compile Include="Assets\Scripts\Extensions\Extensions.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\MgyaExecuter.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\Bootstrap\Tasks\LB2_Task.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\IGraphDataHandler.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\HandlerDataState.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\MgyaData.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\IMgyaDataHandler.cs" />
+     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\CheckData.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\GraphData.cs" />
      <Compile Include="Assets\Scripts\Infrastructure\StateMachine\LBDataDictionaryAdapter.cs" />
      <Folder Include="Assets" />

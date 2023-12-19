@@ -51,7 +51,7 @@ namespace Extensions
             Debug.Log(row);
         }
 
-        public static void PrintWithTitle(this float[] array, string title)
+        public static void PrintWithTitle<T>(this T[] array, string title)
         {
             if (array != null)
             {
